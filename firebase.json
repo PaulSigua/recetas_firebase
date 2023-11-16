@@ -1,0 +1,24 @@
+{
+  "hosting": [
+    {
+      "site": "https://lofty-proton-402912.firebaseapp.com/",
+      "public": "dist/recetas",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "recetas",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

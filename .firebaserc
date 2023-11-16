@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "lofty-proton-402912"
+  },
+  "targets": {
+    "lofty-proton-402912": {
+      "hosting": {
+        "recetas": [
+          "lofty-proton-402912"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: var(--padding-container);
+}
+
+.hero_re {
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    color: rgb(255, 255, 255);
+    z-index: 0;
+    align-content: center;
+}
+
+.hero_re::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('./portada.jpg');
+    background-size: no-repeat;
+    z-index: -1;
+}
+
+.nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    /*background-color: white;*/
+}
+
+.nav__link {
+    margin-left: auto;
+    padding: 10px;
+    display: flex;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.nav-link-footer {
+    display: flex;
+    list-style-type: none;
+}
+
+.hero_title {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.nav .lista{
+    
+    text-align: right;
+    justify-content: right;
+    align-items: center;
+}
+
+.nav li{
+    //margin-bottom: 1px;
+    display: inline;
+    padding: 8px;
+}
+
+.nav li a{
+    text-decoration: none;
+    color: white;
+}

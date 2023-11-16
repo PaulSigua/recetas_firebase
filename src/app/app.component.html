@@ -1,0 +1,16 @@
+<header class="hero_re">
+  <div>
+      <nav class="nav container">
+          <div class="nav__logo">
+              <h2 class="nav-title">Recetas</h2>
+          </div>
+          <ul class="nav__link">
+              <li *ngFor="let e of paginas">
+                  <a href="#" [routerLink]="e.path">{{e.enlace}}</a>
+              </li>
+          </ul>
+      </nav>
+  </div>
+</header>
+
+<router-outlet></router-outlet>

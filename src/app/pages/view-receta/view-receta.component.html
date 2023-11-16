@@ -1,0 +1,20 @@
+
+
+<form action="">
+    <label for="">Nombre</label>
+    <h2>{{datos.nombre}}</h2>
+    <br>
+    <label for="">Ingredientes</label>
+    <p>{{datos.ingredientes}}</p>
+    
+    <br>
+    <label for="">Procedimiento</label>
+    <p>{{datos.procedimiento}}</p>
+    
+    <br>
+</form>
+
+<button (click)="goListado()">Ir a Recetas</button>
+<button (click)="goReceta()">Listar</button>
+
+<router-outlet></router-outlet>
