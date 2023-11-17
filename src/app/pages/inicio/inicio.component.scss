@@ -3,7 +3,6 @@
 body {
     font-family: 'Ubuntu', sans-serif;
     background-color: rgba(252, 252, 252, 0.767);
-    margin: 0;
 }
 
 .presentamos {
@@ -13,26 +12,19 @@ body {
 
 .hero {
     width: 100wh;
-    height: 70vh;
+    height: 100vh;
     min-width: 600px;
     max-height: 200px;
-    position: relative;
-    display: grid;
-    grid-template-rows: 100px 1fr;
-    color: white;
-    margin-bottom: 30px;
+    display: flex;
+    border-radius: 10px;
+    border: 2px solid #5ca4ec;
+    justify-content: center;
+    padding: 10px;
     z-index: 0;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('./portada.jpg');
-    background-size: cover;
-    z-index: -1;
+    &:focus {
+        border: 5px solid #5ca4ec;
+        outline: none;
+    }
 }
 
 .hero_title {
@@ -56,7 +48,7 @@ body {
     width: auto;
     border: 2px solid #dee0e6;
     border-radius: 10px;
-    
+
     &:focus {
         border: 1px solid #c3cad1;
         outline: none;
@@ -98,7 +90,8 @@ body {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(100px, auto); /* Ajusta la altura automáticamente */
+    grid-auto-rows: minmax(100px, auto);
+    /* Ajusta la altura automáticamente */
     list-style: none;
     padding: 0;
 }
@@ -180,11 +173,11 @@ body {
     }
 }
 
-.grid-container{
+.grid-container {
     margin: 30px;
 }
 
-.grid-item{
+.grid-item {
     margin: 10px;
 }
 
@@ -228,24 +221,25 @@ body {
     }
 }
 
-.about-us{
+.about-us {
     color: rgb(0, 0, 0);
     background-color: rgba(255, 193, 164, 0.767);
     /* Fondo de las columnas */
     padding: 10px;
     margin: 10px;
-    width: 600px;   
+    width: 600px;
     justify-content: center;
     margin: 0 auto;
     font-size: 20px;
 }
 
-footer{
+footer {
     margin-top: 50px;
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
 }
+
 .footer-names {
     text-align: center;
     background-color: #000000;
@@ -254,7 +248,7 @@ footer{
     color: rgb(255, 255, 255);
 }
 
-.footer-names a{
+.footer-names a {
     text-decoration: none;
     color: rgb(255, 255, 255);
 }
@@ -267,9 +261,9 @@ footer{
     justify-content: space-evenly;
     font-family: sans-serif;
     color: rgb(255, 255, 255);
-    
+
 }
 
-.banderas img{
+.banderas img {
     width: 100px;
 }

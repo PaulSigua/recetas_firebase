@@ -122,7 +122,7 @@
   <h2 class="bienvenida">Bienvenido, puedes ingresar una receta si lo deseas</h2>
 
   <div class="input-dates">
-      <form (submit)="addInfo(newNombre, newIngre, newProcess)">
+      <form>
 
           <label for="" class="pick">Ingrese el nombre de su receta:</label>
           <input type="text" class="input-name-recet" placeholder="Titulo" #newNombre>
@@ -144,7 +144,7 @@
           <img [src]="image" alt="" *ngFor="let image of images" class="imagen-insert">
           <br>
 
-          <button class="button-ready">
+          <button class="button-ready" type="submit" (click)="addInfo(newNombre, newIngre, newProcess)">
               Aceptar</button>
       </form>
   </div>

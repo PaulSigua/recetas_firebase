@@ -1,7 +1,7 @@
 {
   "hosting": [
     {
-      "site": "https://lofty-proton-402912.firebaseapp.com/",
+      "site": "lofty-proton-402912",
       "public": "dist/recetas",
       "ignore": [
         "firebase.json",

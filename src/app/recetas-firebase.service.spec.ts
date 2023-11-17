@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RecetasFirebaseService } from './recetas-save-firebase.service';
+import { RecetasFirebaseService } from './recetas-firebase.service';
 
 describe('RecetasFirebaseService', () => {
   let service: RecetasFirebaseService;

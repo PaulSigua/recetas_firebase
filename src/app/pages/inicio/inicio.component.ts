@@ -36,10 +36,10 @@ export class InicioComponent implements OnInit {
 
   addInfo(newNombre: HTMLInputElement, newIngre: HTMLTextAreaElement, newProcess: HTMLTextAreaElement) {
     if (!newNombre.value || !newIngre.value || !newProcess.value) {
-      alert('Tonto Verga');
+      alert('Todos los campos deben estar llenos.');
       return false;
     } else {
-      const recetaExistente = this.router.getCurrentNavigation()?.extras.state?.['receta'];
+      const recetaExistente = this.router.getCurrentNavigation()?.extras.state?.['recetas'];
       const receta = {
         nombre: newNombre.value,
         ingredientes: newIngre.value,
@@ -48,7 +48,7 @@ export class InicioComponent implements OnInit {
 
       if (recetaExistente) {
         this.recetasSer.editarInfo(recetaExistente, receta);
-        alert('imbescil.');
+        alert('La receta se ha actualizado correctamente.');
 
       } else {
         this.recetasSer.addInfo(receta);
@@ -58,9 +58,6 @@ export class InicioComponent implements OnInit {
       }
       alert('Se guardó la receta de manera correcta.');
       this.router.navigate(['pages/recetas/']);
-      newNombre.value = '';
-      newIngre.value = '';
-      newProcess.value = '';
       newNombre.focus();
       return false;
     }

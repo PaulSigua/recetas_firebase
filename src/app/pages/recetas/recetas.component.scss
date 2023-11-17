@@ -20,7 +20,7 @@ body {
     width: 400px; 
     height: 15px;
     padding: 3px;
-    font-size: 1.1em; 
+    font-size: 1em; 
 }
 
 .boton {
@@ -49,6 +49,8 @@ body {
 
 .receta-contenedor {
     background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 100%;
     margin-bottom: 20px; /* Ajusta el margen entre recetas según tus preferencias */
     border: 1px solid #dee0e6; /* Borde para separar visualmente las recetas */
     border-radius: 10px; /* Esquinas redondeadas */
