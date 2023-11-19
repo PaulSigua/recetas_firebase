@@ -9,13 +9,13 @@
 
 <body>
 
-    <section class="buscarreceta">
+    <!--section class="buscarreceta">
         <div class="centered-elements">
             <input type="text" id="recipe-search" class="search-input" placeholder="Buscar receta por nombre"
                 [ngModel]="busquedaNombre">
             <button class="boton" (click)="buscarRecetas()">Buscar</button>
         </div>
-    </section>
+    </section-->
 
     <div class="receta-contenedor" id="1">
 
@@ -663,24 +663,24 @@
         </div>
     </div-->
 
-    <div>
-        <div *ngFor="let r of listaRecetas | async" class="receta-contenedor">
-            <a href="" routerLink='/pages/recetas/{{r.uid}}'></a>
-            <h2 class="nombre-receta">{{r.nombre}}</h2>
-            <!--img src="https://pbs.twimg.com/media/Citfbt-WgAMMAJZ?format=jpg&name=900x900" alt=""-->
-            <div class="columns">
-                <div class="column">
-                    <h3>Ingredientes</h3>
-                    <p>{{r.ingredientes}}</p>
 
-                </div>
-                <div class="column">
-                    <h3>Procedimiento</h3>
-                    <p>{{r.procedimiento}}</p>
-                </div>
+    <div *ngFor="let r of listaRecetas | async" class="receta-contenedor">
+        <a href="" routerLink='/pages/recetas/{{r.uid}}'></a>
+        <h2 class="nombre-receta">{{r.nombre}}</h2>
+        <!--img src="https://pbs.twimg.com/media/Citfbt-WgAMMAJZ?format=jpg&name=900x900" alt=""-->
+        <div class="columns">
+            <div class="column">
+                <h3>Ingredientes</h3>
+                <p>{{r.ingredientes}}</p>
+
+            </div>
+            <div class="column">
+                <h3>Procedimiento</h3>
+                <p>{{r.procedimiento}}</p>
             </div>
         </div>
     </div>
+
 
 </body>
 

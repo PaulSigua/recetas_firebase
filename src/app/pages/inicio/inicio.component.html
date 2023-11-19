@@ -145,15 +145,15 @@
             <textarea class="input-text" id="" placeholder="Procedimiento" #newProcess></textarea>
             <br>
 
-            <input type="file" class="input-image" id="fileInput" accept=".png, .jpg, jpeg" multiple
+            <!--input type="file" class="input-image" id="fileInput" accept=".png, .jpg, jpeg" multiple
                 (change)="subirImagen($event)">
             <label for="fileInput" class="custom-file-upload" #newFile>
                 <span>Seleccionar archivo (opcional)</span>
-            </label>
+            </label-->
             <br>
 
-            <img [src]="image" alt="" *ngFor="let image of images" class="imagen-insert">
-            <br>
+            <!--img [src]="image" alt="" *ngFor="let image of images" class="imagen-insert">
+            <br-->
 
             <button class="button-ready" type="submit" (click)="addInfo(newNombre, newIngre, newProcess)">
                 Aceptar</button>
