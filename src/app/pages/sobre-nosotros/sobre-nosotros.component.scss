@@ -1,7 +1,7 @@
 body {
     font-family: 'Ubuntu', sans-serif;
     background-color: rgba(252, 252, 252, 0.767);
-    margin: 0 auto;
+    margin: 0;
 }
 
 .image{
@@ -27,7 +27,6 @@ body {
 @media only screen and (max-width: 416px) {
     .img-acerca {
         margin-top: 10px;
-        padding-top: 10px;
         width: 350px;
         height: auto;
         margin: 0;
@@ -39,7 +38,7 @@ body {
     color: rgb(0, 0, 0);
     border-radius: 10px;
     border: 2px solid #5d87ff;
-    margin: 40px 10px;
+    margin: 15px 10px;
     padding: 20px;
     width: auto;   
     justify-content: center;
@@ -53,16 +52,16 @@ body {
 }
 
 footer{
-    margin-top: 50px;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
+    margin-top: 20px;
+    margin: 0;
+    top: 0;
+    left: 0;
 }
 
 .footer-names {
     text-align: center;
     background-color: #000000;
-    width: 100%;
+    width: auto;
     padding: 10px;
     color: rgb(255, 255, 255);
 }
@@ -78,7 +77,6 @@ footer{
     justify-content: center;
     margin: 0 50px 0 50px;
     justify-content: space-evenly;
-    font-family: sans-serif;
     color: rgb(255, 255, 255);
     
 }

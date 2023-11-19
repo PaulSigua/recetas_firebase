@@ -11,17 +11,15 @@
 
     <section class="buscarreceta">
         <div class="centered-elements">
-            <input type="text" id="recipe-search" class="search-input" placeholder="Buscar receta por nombre" [ngModel]="busquedaNombre">
+            <input type="text" id="recipe-search" class="search-input" placeholder="Buscar receta por nombre"
+                [ngModel]="busquedaNombre">
             <button class="boton" (click)="buscarRecetas()">Buscar</button>
-            <li *ngFor="let r of recetas">
-                {{r.nombre}}
-            </li>
         </div>
     </section>
 
     <div class="receta-contenedor" id="1">
 
-        <h2>Chaulafan</h2>
+        <h2 class="nombre-receta">Chaulafan</h2>
         <div class="first-image">
             <!--img src="https://pronacatqma.com/images/com_yoorecipe/banner_superior/5645_1.jpg" alt=""-->
             <div class="columns">
@@ -79,8 +77,9 @@
             </div>
         </div>
     </div>
+
     <div class="receta-contenedor" id="2">
-        <h2>Bolon de verde</h2>
+        <h2 class="nombre-receta">Bolon de verde</h2>
         <div class="first-image">
             <!--img src="https://artecuador.com/images/platos_ecuatorianos.jpg" alt=""-->
             <div class="columns">
@@ -142,7 +141,7 @@
     </div>
 
     <div class="receta-contenedor" id="3">
-        <h2>Seco de Pollo</h2>
+        <h2 class="nombre-receta">Seco de Pollo</h2>
         <div class="first-image">
             <!--img src="https://pronacatqma.com/images/com_yoorecipe/banner_superior/18237_1.jpg" alt=""-->
             <div class="columns">
@@ -215,7 +214,7 @@
     </div>
 
     <div class="receta-contenedor" id="4">
-        <h2>Milanesa</h2>
+        <h2 class="nombre-receta">Milanesa</h2>
         <div class="first-image">
             <!--img src="https://viajaverde.uy/wp-content/uploads/2023/03/AdobeStock_296966702-1024x683.jpeg" alt=""-->
             <div class="columns">
@@ -276,7 +275,7 @@
     </div>
 
     <div class="receta-contenedor" id="5">
-        <h2>Hornado de Chancho</h2>
+        <h2 class="nombre-receta">Hornado de Chancho</h2>
         <div class="first-image">
             <!--img src="https://as1.ftcdn.net/v2/jpg/04/88/81/26/1000_F_488812635_56b0s23bNKjQYDGulHrVl0CUrJyTzlnX.jpg"
                         alt=""-->
@@ -347,7 +346,7 @@
     </div>
 
     <div class="receta-contenedor" id="6">
-        <h2>Sopa de verduras</h2>
+        <h2 class="nombre-receta">Sopa de verduras</h2>
         <div class="first-image">
             <!--img src="https://static1.mujerhoy.com/www/multimedia/201902/21/media/cortadas/sopas-kSFD-U707283843870L-624x468@MujerHoy.jpg"
                         alt=""-->
@@ -423,7 +422,7 @@
 
     <div class="receta-contenedor" id="7">
 
-        <h2>Encebollado</h2>
+        <h2 class="nombre-receta">Encebollado</h2>
         <div class="first-image">
             <!--img src="https://i.pinimg.com/564x/90/69/1f/90691f98bfe81cc805eb1ba580bbc2a6.jpg" alt=""-->
             <div class="columns">
@@ -497,7 +496,7 @@
     </div>
 
     <div class="receta-contenedor" id="8">
-        <h2>Cuy asado</h2>
+        <h2 class="nombre-receta">Cuy asado</h2>
         <div class="first-image">
             <!--img src="https://pbs.twimg.com/media/Citfbt-WgAMMAJZ?format=jpg&name=900x900" alt=""-->
             <div class="columns">
@@ -559,7 +558,7 @@
     </div>
 
     <div class="receta-contenedor" id="9">
-        <h2>Espaguetti</h2>
+        <h2 class="nombre-receta">Espaguetti</h2>
         <div class="first-image">
             <!--img src="https://natucampo.com/wp-content/uploads/2023/01/Receta-2.jpg" alt=""-->
             <div class="columns">
@@ -667,19 +666,17 @@
     <div>
         <div *ngFor="let r of listaRecetas | async" class="receta-contenedor">
             <a href="" routerLink='/pages/recetas/{{r.uid}}'></a>
-            <h2>{{r.nombre}}</h2>
-            <div class="first-image">
-                <!--img src="https://pbs.twimg.com/media/Citfbt-WgAMMAJZ?format=jpg&name=900x900" alt=""-->
-                <div class="columns">
-                    <div class="column">
-                        <h3>Ingredientes</h3>
-                        <p>{{r.ingredientes}}</p>
+            <h2 class="nombre-receta">{{r.nombre}}</h2>
+            <!--img src="https://pbs.twimg.com/media/Citfbt-WgAMMAJZ?format=jpg&name=900x900" alt=""-->
+            <div class="columns">
+                <div class="column">
+                    <h3>Ingredientes</h3>
+                    <p>{{r.ingredientes}}</p>
 
-                    </div>
-                    <div class="column">
-                        <h3>Procedimiento</h3>
-                        <p>{{r.procedimiento}}</p>
-                    </div>
+                </div>
+                <div class="column">
+                    <h3>Procedimiento</h3>
+                    <p>{{r.procedimiento}}</p>
                 </div>
             </div>
         </div>

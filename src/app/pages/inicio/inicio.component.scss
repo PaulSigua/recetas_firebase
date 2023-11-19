@@ -3,6 +3,7 @@
 body {
     font-family: 'Ubuntu', sans-serif;
     background-color: rgba(252, 252, 252, 0.767);
+    margin: 0;
 }
 
 .presentamos {
@@ -173,7 +174,7 @@ body {
 .imagen-insert {
     display: grid;
     margin: 5px;
-    width: 250px;
+    width: 265px;
     height: 150px;
     justify-content: center;
     align-items: center;
@@ -252,7 +253,7 @@ footer {
 .footer-names {
     text-align: center;
     background-color: #000000;
-    width: 100%;
+    width: auto;
     padding: 10px;
     color: rgb(255, 255, 255);
 }
