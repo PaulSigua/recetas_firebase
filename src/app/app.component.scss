@@ -1,6 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html{
+    font-family: 'Ubuntu', sans-serif;
+    overflow: hidden;
+}
+
+:host {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor-principal{
+    margin: 0;
+    position: relative;
+    width: auto;
+    height: 70px;
+
+}
+
 .container {
+    margin: 0;
     width: 95%;
     margin: 0 auto;
     overflow: hidden;
@@ -8,26 +33,35 @@
 }
 
 .hero_re {
-    margin: 0;
-    font-family: 'Ubuntu', sans-serif;
-    width: 100%;
-    height: 100%;
+    top: 0;
+    left: 0;
     position: relative;
-    display: grid;
-    grid-template-rows: 100px 1fr;
-    color: rgb(255, 255, 255);
-    z-index: 0;
-    align-content: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    transition: 0.7s;
+    z-index: 10;
 }
 
 .hero_re::before {
+    top: 0;
+    left: 0;
     content: "";
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('./portada.jpg');
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url('./portada.jpg');
     background-size: no-repeat;
     z-index: -1;
+}
+
+.fixed-header {
+    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Otros estilos... */
 }
 
 .nav {
@@ -41,7 +75,6 @@
     margin-left: auto;
     padding: 10px;
     display: flex;
-    color: white;
     text-decoration: none;
     font-size: 17px;
 }
@@ -67,7 +100,7 @@
     padding: 8px;
 }
 
-.nav li a{
+a{
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
 }

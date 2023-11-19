@@ -54,6 +54,7 @@ export class InicioComponent implements OnInit {
         this.recetasSer.addInfo(receta);
         console.log(receta);
         this.recetaFireSer.save(receta);
+        
         this.datos = new Datos();
       }
       alert('Se guardó la receta de manera correcta.');

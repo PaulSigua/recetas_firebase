@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { HostListener, Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +13,17 @@ export class AppComponent {
     { enlace: 'Recetas', path: 'pages/recetas' },
     { enlace: 'Sobre nosotros', path: 'pages/sobre_nosotros' }
   ];
+
+  isScrolled = false;
+  router: Router;
+
+  constructor(router: Router) {
+    this.router = router;
+  }
+
+  @HostListener('window:scroll', [])
+  windownScroll() {
+    this.isScrolled = window.scrollY > 0;
+  }
+
 }

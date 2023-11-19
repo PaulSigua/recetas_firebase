@@ -6,7 +6,7 @@ body {
 }
 
 .contenedor {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .buscarreceta {
@@ -17,7 +17,7 @@ body {
 }
 
 .search-input {
-    width: 400px; 
+    width: 250px; 
     height: 15px;
     padding: 3px;
     font-size: 1em; 
@@ -33,13 +33,14 @@ body {
 }
 
 .recetas {
-    border: 20px;
+    border: 10px;
     border-radius: 10px;
     border: 1px solid #dee0e6;
     background-color: #ffffff;
     padding: 10px;
-    margin: 20px;
+    margin: 10px;
     clear: both;
+    margin-bottom: 20px;
 
     &:focus {
         border: 1px solid #c3cad1;
@@ -49,15 +50,15 @@ body {
 
 .receta-contenedor {
     background-color: rgb(255, 255, 255);
-    height: 100%;
-    width: 100%;
-    margin-bottom: 20px; /* Ajusta el margen entre recetas según tus preferencias */
-    border: 1px solid #dee0e6; /* Borde para separar visualmente las recetas */
-    border-radius: 10px; /* Esquinas redondeadas */
-    padding: 10px; /* Ajusta el relleno según tus preferencias */
+    height: auto;
+    width: auto;
+    margin: 13px;
+    border: 1px solid #dee0e6; 
+    border-radius: 10px; 
+    padding: 40px; 
 }
 
-.first-image {
+.contenedor-columnas {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,7 +70,7 @@ img {
     height: auto;
 }
 
-.title {
+.title { // titulo de la receta
     display: grid;
     align-items: center;
     margin: 30px;
@@ -77,28 +78,31 @@ img {
 
 .columns {
     display: flex;
-    margin: 10px;
-    width: auto;
-    height: auto;
     flex-direction: row;
-    margin-left: 10px;
-    width: 850px;
+    margin: 10px;
 }
 
 .column {
-    height: auto;
+    width: 500px;
     padding: 10px;
-    margin: 30px;
-    width: 450px;
+    margin: 10px;
+    min-width: auto;
     border-radius: 10px;
     border: 1px solid #dee0e6;
     background-color: #dee0e6;
+}
 
-    &:focus {
-        border: 1px solid #c3cad1;
-        outline: none;
+@media only screen and (max-width: 600px) {
+    .columns {
+        flex-direction: column;
+    }
+
+    .column {
+        width: 100%;
+        height: 100%;
     }
 }
+
 
 .actualizar-receta, .eliminar-receta {
     display: grid;
