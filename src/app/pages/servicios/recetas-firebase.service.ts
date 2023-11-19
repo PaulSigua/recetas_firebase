@@ -1,39 +1,41 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Datos } from 'src/app/modelos/datos';
+import { Observable } from 'rxjs';
+import { Recetas } from 'src/app/modelos/datos';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactosFirebaseService {
 
-  
-  private path = '/recetas';
 
-  contactosRef: AngularFirestoreCollection<any>
+  private path = '/recetas'
+  recetasRef: AngularFirestoreCollection<any>
 
-  constructor(private db: AngularFirestore) { 
-    this.contactosRef = db.collection(this.path)
+  constructor(private db: AngularFirestore) {
+    this.recetasRef = db.collection(this.path)
 
-    this.contactosRef.valueChanges().subscribe(data => {
+    this.recetasRef.valueChanges().subscribe(data => {
       console.log(data)
     })
   }
 
-  getAll(){
-    return this.contactosRef.valueChanges()
+  saveRecetaFirebase(receta: Recetas) {
+    const uid = this.db.createId();
+    receta.uid = uid;
+    this.recetasRef.doc(uid).set(Object.assign({}, receta));
   }
 
-  save(receta: Datos){
-    const uid = this.db.createId()
-    //const dataWithId = { uid, ...receta };
-    //return this.contactosRef.doc(uid).set(Object.assign({}, dataWithId))
-    return this.contactosRef.doc(uid).set(Object.assign({},Datos))
+  getRecetas(): Observable<Recetas[]> {
+    return this.db.collection<Recetas>('recetas').valueChanges();
   }
 
-  getReceta (uid: string){
-    console.log('uid', uid)
-    return this.db.doc(this.path+'/'+uid).valueChanges()
+  buscarRecetas(nombre: string): Observable<Recetas[]> {
+    return this.db
+      .collection<Recetas>('recetas', (ref) =>
+        ref.where('nombre', '>=', nombre).where('nombre', '<=', nombre + '\uf8ff')
+      )
+      .valueChanges();
   }
 }
 

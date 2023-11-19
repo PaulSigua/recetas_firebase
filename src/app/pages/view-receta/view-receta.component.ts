@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Datos } from 'src/app/modelos/datos';
-import { ContactosFirebaseService } from '../servicios/recetas-firebase.service';
+import { Recetas } from 'src/app/modelos/datos';
+import { RecetasService } from '../servicios/recetas.service';
 
 @Component({
   selector: 'app-view-receta',
@@ -10,12 +10,12 @@ import { ContactosFirebaseService } from '../servicios/recetas-firebase.service'
 })
 export class ViewRecetaComponent {
 
-  datos: Datos = new Datos();
+  datos: Recetas = new Recetas();
 
   constructor (
     private router: Router,
     private route: ActivatedRoute,
-    private recetaFireSer: ContactosFirebaseService) {
+    private recetaSer: RecetasService) {
       this.route.params.subscribe(params => {
         console.log(params)
         if (params['id']) {
@@ -26,7 +26,7 @@ export class ViewRecetaComponent {
   }
 
   loadReceta(uid: string) {
-    this.recetaFireSer.getReceta(uid).subscribe(data => {
+    this.recetaSer.getReceta(uid).subscribe(data => {
       console.log(data)
       this.datos = <any> data;
     })

@@ -17,19 +17,28 @@ body {
 }
 
 .search-input {
-    width: 250px; 
-    height: 15px;
-    padding: 3px;
-    font-size: 1em; 
+    border-radius: 10px;
+    border: 1px solid #dee0e6;
+    justify-content: center;
+    padding: 10px;
+    width: 250px;
+
+    &:focus {
+        border: 1px solid #b7bac3;
+        outline: none;
+    }
 }
 
 .boton {
     width: 90px;
     height: 30px; 
     font-size: 1em; 
-    background-color: #332727;
+    background-color: #5d87ff;
     border: 1px solid transparent;
     color: white;
+    cursor: pointer;
+    margin-left: 5px;
+    border-radius: 10px;
 }
 
 .recetas {
@@ -52,10 +61,17 @@ body {
     background-color: rgb(255, 255, 255);
     height: auto;
     width: auto;
-    margin: 13px;
+    margin: 20px;
     border: 1px solid #dee0e6; 
     border-radius: 10px; 
     padding: 40px; 
+}
+
+@media only screen and (max-width: 600px) {
+    .receta-contenedor {
+        margin: 5px; 
+        padding: 30px; 
+    }
 }
 
 .contenedor-columnas {
@@ -68,12 +84,6 @@ img {
     padding: 20px;
     width: 350px;
     height: auto;
-}
-
-.title { // titulo de la receta
-    display: grid;
-    align-items: center;
-    margin: 30px;
 }
 
 .columns {
@@ -102,7 +112,6 @@ img {
         height: 100%;
     }
 }
-
 
 .actualizar-receta, .eliminar-receta {
     display: grid;

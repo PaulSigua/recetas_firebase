@@ -53,6 +53,7 @@ body, html{
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url('./portada.jpg');
     background-size: no-repeat;
     z-index: -1;
+    border-radius: 5px;
 }
 
 .fixed-header {
@@ -98,6 +99,12 @@ body, html{
 .nav li{
     display: inline;
     padding: 8px;
+}
+
+@media only screen and (max-width: 500px) {
+    .nav__link{
+        font-size: 14px;
+    }
 }
 
 a{

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Datos } from 'src/app/modelos/datos';
-import { RecetasFirebaseService } from 'src/app/recetas-firebase.service';
+import { Recetas } from 'src/app/modelos/datos';
 import { RecetasService } from '../servicios/recetas.service';
 import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
+import { ContactosFirebaseService } from '../servicios/recetas-firebase.service';
 
 @Component({
   selector: 'app-inicio',
@@ -12,14 +12,14 @@ import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fir
 })
 export class InicioComponent implements OnInit {
 
-  datos: Datos = new Datos();
+  datos: Recetas = new Recetas();
 
   images: string[];
 
   constructor(
     private router: Router,
     private recetasSer: RecetasService,
-    private recetaFireSer: RecetasFirebaseService,
+    private recetaFireSer: ContactosFirebaseService,
     private storage: Storage
   ) {
     this.images = [];
@@ -53,9 +53,9 @@ export class InicioComponent implements OnInit {
       } else {
         this.recetasSer.addInfo(receta);
         console.log(receta);
-        this.recetaFireSer.save(receta);
+        this.recetaFireSer.saveRecetaFirebase(receta);
         
-        this.datos = new Datos();
+        this.datos = new Recetas();
       }
       alert('Se guardó la receta de manera correcta.');
       this.router.navigate(['pages/recetas/']);

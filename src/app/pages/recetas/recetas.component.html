@@ -1,9 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
 <body>
 
     <section class="buscarreceta">
         <div class="centered-elements">
-            <input type="text" id="recipe-search" class="search-input" placeholder="Buscar recetas por nombre">
-            <button class="boton" onclick="buscarRecetas()">Buscar</button>
+            <input type="text" id="recipe-search" class="search-input" placeholder="Buscar receta por nombre" [ngModel]="busquedaNombre">
+            <button class="boton" (click)="buscarRecetas()">Buscar</button>
+            <li *ngFor="let r of recetas">
+                {{r.nombre}}
+            </li>
         </div>
     </section>
 
@@ -484,70 +496,67 @@
         </div>
     </div>
 
-    <div>
-        <div class="receta-contenedor" id="8">
-            <h2>Cuy asado</h2>
-            <div class="first-image">
-                <!--img src="https://pbs.twimg.com/media/Citfbt-WgAMMAJZ?format=jpg&name=900x900" alt=""-->
-                <div class="columns">
-                    <div class="column">
-                        <ul class="ingredientes">
-                            <h3>Ingredientes</h3>
-                            <li>2 cuyes (conejillos de Indias) enteros</li>
-                            <li>4 dientes de ajo, picados</li>
-                            <li>2 cucharadas de comino molido</li>
-                            <li>2 cucharadas de orégano seco</li>
-                            <li>1/4 de taza de aceite vegetal</li>
-                            <li>Sal y pimienta al gusto</li>
-                            <li>Jugo de limón</li>
-                            <li>Papas y maíz tostado (opcional, para servir)</li>
-                        </ul>
-                    </div>
-                    <div class="column">
-                        <h3>Procedimiento:</h3>
-                        <p class="procedimiento">
-                            Lava y limpia los cuyes. Retira las vísceras y enjuaga bien.
+    <div class="receta-contenedor" id="8">
+        <h2>Cuy asado</h2>
+        <div class="first-image">
+            <!--img src="https://pbs.twimg.com/media/Citfbt-WgAMMAJZ?format=jpg&name=900x900" alt=""-->
+            <div class="columns">
+                <div class="column">
+                    <ul class="ingredientes">
+                        <h3>Ingredientes</h3>
+                        <li>2 cuyes (conejillos de Indias) enteros</li>
+                        <li>4 dientes de ajo, picados</li>
+                        <li>2 cucharadas de comino molido</li>
+                        <li>2 cucharadas de orégano seco</li>
+                        <li>1/4 de taza de aceite vegetal</li>
+                        <li>Sal y pimienta al gusto</li>
+                        <li>Jugo de limón</li>
+                        <li>Papas y maíz tostado (opcional, para servir)</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Procedimiento:</h3>
+                    <p class="procedimiento">
+                        Lava y limpia los cuyes. Retira las vísceras y enjuaga bien.
 
-                            En un tazón, mezcla el ajo picado, el comino, el orégano, el aceite vegetal, sal,
-                            pimienta y
-                            jugo de limón. Esta
-                            mezcla servirá como adobo para los cuyes.
+                        En un tazón, mezcla el ajo picado, el comino, el orégano, el aceite vegetal, sal,
+                        pimienta y
+                        jugo de limón. Esta
+                        mezcla servirá como adobo para los cuyes.
 
-                            Frota los cuyes con el adobo, asegurándote de que estén bien cubiertos. Deja que los
-                            cuyes
-                            marinen en el adobo
-                            durante al menos 30 minutos, aunque es mejor si pueden marinar durante varias horas
-                            o toda
-                            la noche en el
-                            refrigerador.
+                        Frota los cuyes con el adobo, asegurándote de que estén bien cubiertos. Deja que los
+                        cuyes
+                        marinen en el adobo
+                        durante al menos 30 minutos, aunque es mejor si pueden marinar durante varias horas
+                        o toda
+                        la noche en el
+                        refrigerador.
 
-                            Precalienta una parrilla o asador a fuego medio-alto. Si no tienes una parrilla,
-                            puedes
-                            utilizar una parrilla de
-                            carbón o una parrilla eléctrica.
+                        Precalienta una parrilla o asador a fuego medio-alto. Si no tienes una parrilla,
+                        puedes
+                        utilizar una parrilla de
+                        carbón o una parrilla eléctrica.
 
-                            Asa los cuyes en la parrilla caliente durante unos 25-30 minutos por lado, o hasta
-                            que estén
-                            dorados y cocidos
-                            por completo. Gira los cuyes con cuidado para asegurarte de que se cocinen de manera
-                            uniforme.
+                        Asa los cuyes en la parrilla caliente durante unos 25-30 minutos por lado, o hasta
+                        que estén
+                        dorados y cocidos
+                        por completo. Gira los cuyes con cuidado para asegurarte de que se cocinen de manera
+                        uniforme.
 
-                            Mientras se cocinan los cuyes, puedes asar papas en la parrilla o cocinar maíz
-                            tostado (maíz
-                            chulpi) como
-                            guarnición, si lo deseas.
+                        Mientras se cocinan los cuyes, puedes asar papas en la parrilla o cocinar maíz
+                        tostado (maíz
+                        chulpi) como
+                        guarnición, si lo deseas.
 
-                            Sirve los cuyes asados calientes, acompañados de papas y maíz tostado.
+                        Sirve los cuyes asados calientes, acompañados de papas y maíz tostado.
 
-                            ¡Disfruta de esta experiencia
-                            culinaria!
-                        </p>
-                    </div>
+                        ¡Disfruta de esta experiencia
+                        culinaria!
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-
 
     <div class="receta-contenedor" id="9">
         <h2>Espaguetti</h2>
@@ -663,10 +672,9 @@
                 <!--img src="https://pbs.twimg.com/media/Citfbt-WgAMMAJZ?format=jpg&name=900x900" alt=""-->
                 <div class="columns">
                     <div class="column">
-                        <ul class="ingredientes">
-                            <h3>Ingredientes</h3>
-                            <p>{{r.ingredientes}}</p>
-                        </ul>
+                        <h3>Ingredientes</h3>
+                        <p>{{r.ingredientes}}</p>
+
                     </div>
                     <div class="column">
                         <h3>Procedimiento</h3>
@@ -678,3 +686,5 @@
     </div>
 
 </body>
+
+</html>

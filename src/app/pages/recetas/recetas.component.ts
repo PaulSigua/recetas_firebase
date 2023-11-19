@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { RecetasFirebaseService } from 'src/app/recetas-firebase.service';
+import { Component, OnInit } from '@angular/core';
 import { RecetasService } from '../servicios/recetas.service';
-import { Datos } from 'src/app/modelos/datos';
+import { Recetas } from 'src/app/modelos/datos';
 import { Router } from '@angular/router';
+import { ContactosFirebaseService } from '../servicios/recetas-firebase.service';
 
 @Component({
   selector: 'app-recetas',
@@ -16,30 +16,34 @@ import { Router } from '@angular/router';
 export class RecetasComponent {
 
   receta!: RecetasService;
-  datos: Datos[] = [];
+  recetas: Recetas[] = [];
 
   listaRecetas: any;
 
+  busquedaNombre: string = '';
 
   constructor(
     private router: Router,
-    public recetasSer: RecetasService,
-    private recetaFire: RecetasFirebaseService,
+    private recetasSer: RecetasService,
+    private recetasFire: ContactosFirebaseService
   ) {
-    this.datos = recetasSer.getInfo();
-    this.listaRecetas = this.recetaFire.getAll();
+    this.recetas = recetasSer.getInfo();
+    this.listaRecetas = this.recetasSer.getAll();
     console.log('Viendo: ' + this.listaRecetas)
+
+    this.recetasFire.getRecetas().subscribe((recetas) =>
+      this.recetas = recetas)
 
   }
 
-  eliminarReceta(dato: Datos) {
+  eliminarReceta(dato: Recetas) {
     const confirmarEli = window.confirm('¿Desea eliminar la receta?');
 
     if (confirmarEli) {
-      for (let i = 0; i < this.datos.length; i++) {
-        if (dato == this.datos[i]) {
-          this.datos.splice(i, 1);
-          localStorage.setItem('datos', JSON.stringify(this.datos));
+      for (let i = 0; i < this.recetas.length; i++) {
+        if (dato == this.recetas[i]) {
+          this.recetas.splice(i, 1);
+          localStorage.setItem('datos', JSON.stringify(this.recetas));
         }
       }
     } else {
@@ -47,7 +51,7 @@ export class RecetasComponent {
     }
   }
 
-  editarReceta(dato: Datos) {
+  editarReceta(dato: Recetas) {
     /**const index = this.datos.indexOf(dato);
 
     let params: NavigationExtras = {
@@ -62,8 +66,26 @@ export class RecetasComponent {
 
   }
 
+
   actualizarRecetas() {
-    console.log("llamado a recetas", this.datos)
+    console.log("llamado a recetas", this.recetas)
+  }
+
+  buscarRecetas() {
+    if (this.busquedaNombre.trim() !== '') {
+      this.recetasFire
+        .buscarRecetas(this.busquedaNombre.toLowerCase())
+        .subscribe((recetas) => {
+          console.log("recetas encontradas: ", recetas)
+          this.recetas = recetas;
+        });
+    } else {
+      // Si la búsqueda está vacía, muestra todas las recetas
+      this.recetasFire.getRecetas().subscribe((recetas) => {
+        this.recetas = recetas;
+        //console.log("todas las recetas: " + recetas);
+      });
+    }
   }
 
 }

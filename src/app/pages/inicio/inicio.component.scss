@@ -11,16 +11,15 @@ body {
 }
 
 .hero {
-    width: 100wh;
-    height: 100vh;
     min-width: auto;
-    max-height: 200px;
+    max-height: auto;
     display: flex;
     border-radius: 10px;
     border: 2px solid #5ca4ec;
     justify-content: center;
     padding: 15px;
     z-index: 0;
+
     &:focus {
         border: 5px solid #5ca4ec;
         outline: none;
@@ -28,13 +27,11 @@ body {
 }
 
 .hero_title {
-    font-family: 'Ubuntu', sans-serif;
     font-size: 1.5rem;
     text-align: center;
 }
 
 .hero__paragraph {
-    font-family: 'Ubuntu', sans-serif;
     max-width: 400px;
     margin: 0 auto;
     text-align: center;
@@ -79,7 +76,6 @@ body {
 .grid-item p {
     border-radius: 10px;
     text-align: center;
-    font-family: 'Raleway', sans-serif;
     padding: 1em;
     line-height: 1.4;
     color: rgb(0, 0, 0);
@@ -97,34 +93,35 @@ body {
     margin: 30px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
     .grid-container {
-        grid-template-columns: 1fr; // Cambia a una sola columna en dispositivos pequeños
-        margin: 15px; // Ajusta el margen para dispositivos pequeños
+        grid-template-columns: 1fr;
+        margin: 15px;
+
     }
 
     .grid-item {
-        width: 100%;
+        width: auto;
     }
-    
+
 }
 
 .bienvenida {
-    font-family: 'Ubuntu', sans-serif;
     text-align: center;
 }
 
 .input-dates {
-    font-family: 'Ubuntu', sans-serif;
     display: flex;
     border: 2px solid #5d87ff;
     border-radius: 10px;
     padding: 15px;
     justify-content: center;
     align-items: center;
+    min-width: auto;
+    max-height: auto;
 }
 
-.input-dates .input-name,
+.input-dates
 .input-name-recet {
     display: flex;
     border-radius: 10px;
@@ -134,24 +131,44 @@ body {
     width: 250px;
 
     &:focus {
-        border: 1px solid #dee0e6;
+        border: 1px solid #b7bac3;
         outline: none;
     }
 }
 
 .input-dates .input-text {
-    width: 250px;
     border-radius: 10px;
-    border: 2px solid #dee0e6;
+    border: 1px solid #dee0e6;
     display: flex;
     padding-block: auto;
     height: 250px;
+    width: 100%;
+    box-sizing: border-box;
 
     &:focus {
-        border: 1px solid #dee0e6;
+        border: 1px solid #b7bac3;
         outline: none;
     }
 }
+
+/*@media screen and (max-width: 600px) {
+    .input-dates {
+        padding: 10px;
+    }
+
+    .input-text {
+        height: 100px;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .input-name-recet {
+        width: 100%;
+    }
+
+}*/
 
 .imagen-insert {
     display: grid;
@@ -167,16 +184,14 @@ body {
 }
 
 .button-ready {
-    width: 255px;
+    width: 275px;
     margin-top: 10px;
     padding: 10px;
-    padding: 10px 20px;
-    background-color: #5d87ff; // Color de fondo del botón
-    color: #fff; // Color del texto
-    border: 1px solid #5d87ff; // Borde del botón
-    border-radius: 5px; // Esquinas redondeadas
-    font-size: 14px; // Tamaño de fuente
-    text-decoration: none;
+    background-color: #5d87ff;
+    color: #fff; 
+    border: 1px solid #5d87ff; 
+    border-radius: 5px; 
+    font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 
@@ -191,7 +206,7 @@ body {
 }
 
 .custom-file-upload {
-    width: 230px;
+    width: 250px;
     justify-content: center;
     border: 2px solid #5d87ff;
     color: #5d87ff;
@@ -226,17 +241,6 @@ body {
     }
 }
 
-.about-us {
-    color: rgb(0, 0, 0);
-    background-color: rgba(255, 193, 164, 0.767);
-    /* Fondo de las columnas */
-    padding: 10px;
-    margin: 10px;
-    width: 600px;
-    justify-content: center;
-    margin: 0 auto;
-    font-size: 20px;
-}
 
 footer {
     margin-top: 50px;
