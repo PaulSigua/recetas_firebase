@@ -4,6 +4,7 @@ import { Recetas } from 'src/app/modelos/datos';
 import { RecetasService } from '../servicios/recetas.service';
 import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
 import { ContactosFirebaseService } from '../servicios/recetas-firebase.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-inicio',
@@ -16,11 +17,14 @@ export class InicioComponent implements OnInit {
 
   images: string[];
 
+  recetaForm!: FormGroup;
+
   constructor(
     private router: Router,
     private recetasSer: RecetasService,
     private recetaFireSer: ContactosFirebaseService,
-    private storage: Storage
+    private storage: Storage,
+    public fb: FormBuilder
   ) {
     this.images = [];
     let params = this.router.getCurrentNavigation()?.extras.queryParams;
@@ -30,8 +34,13 @@ export class InicioComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getImagenes();
+    this.recetaForm = this.fb.group({
+      nombre: ['', Validators.required],
+      ingredientes: ['', Validators.required],
+      procedimientos: ['', Validators.required],
+    })
   }
 
   addInfo(newNombre: HTMLInputElement, newIngre: HTMLTextAreaElement, newProcess: HTMLTextAreaElement) {
@@ -72,7 +81,7 @@ export class InicioComponent implements OnInit {
 
     uploadBytes(imgRef, archivo).then(
       respuesta => {
-        console.log(respuesta);
+        //console.log(respuesta);
         this.getImagenes();
       }
     ).catch(error => console.log(error));

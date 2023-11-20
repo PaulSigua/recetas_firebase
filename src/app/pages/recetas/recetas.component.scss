@@ -119,13 +119,19 @@ img {
         padding-left: 0;
         margin: 10px;
     }
+
+    .actualizar-receta,
+    .eliminar-receta {
+        margin: 0;
+        padding: 0;
+    }
 }
 
-.actualizar-receta,
+.receta-contenedor .actualizar-receta,
 .eliminar-receta {
-    display: grid;
-    width: 95px;
-    margin-top: 5px;
+    display: flex;
+    width: 92px;
+    margin: 5px;
     background-color: #5d87ff; // Color de fondo del botón
     color: #fff; // Color del texto
     border: 1px solid #5d87ff; // Borde del botón
@@ -134,6 +140,7 @@ img {
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+    justify-content: center;
 
     &:hover {
         background-color: #2c5cb8; // Cambia el color al pasar el ratón
@@ -141,4 +148,70 @@ img {
     }
 
     margin-left: auto;
+}
+
+/* Estilos para el formulario de edición */
+.contenedor-formularioEdit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario-edicion {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #5d87ff;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 5px;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario-edicion label {
+    margin-bottom: 8px;
+}
+
+.formulario-edicion input{
+    border-radius: 10px;
+    border: 1px solid #dee0e6;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    width: 250px;
+
+    &:focus {
+        border: 1px solid #b7bac3;
+        outline: none;
+    }
+}
+
+.formulario-edicion textarea{
+    border-radius: 10px;
+    border: 1px solid #dee0e6;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    width: 250px;
+    height: 100px;
+
+    &:focus {
+        border: 1px solid #b7bac3;
+        outline: none;
+    }
+}
+
+.formulario-edicion button {
+    border-radius: 10px;
+    background-color: #5d87ff;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+
+    &:hover {
+        background-color: #445fb2;
+    }
 }

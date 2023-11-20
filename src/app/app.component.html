@@ -7,14 +7,14 @@
 </head>
 <body>
     <div class="contenedor-principal">
-        <header class="hero_re" [ngClass]="{'fixed-header': isScrolled}">
-            <nav class="nav container">
-                <div class="nav__logo">
+        <header class="header-ini" [ngClass]="{'fixed-header': isScrolled}">
+            <nav class="nav-container">
+                <div>
                     <a href="">
                         <h2 class="nav-title">Recetas</h2>
                     </a>
                 </div>
-                <ul class="nav__link">
+                <ul class="nav-link">
                     <li *ngFor="let e of paginas">
                         <a href="#" [routerLink]="e.path">{{e.enlace}}</a>
                     </li>

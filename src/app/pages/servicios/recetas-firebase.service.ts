@@ -1,18 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { Firestore, collectionData, doc, deleteDoc } from '@angular/fire/firestore';
+import { collection } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { Recetas } from 'src/app/modelos/datos';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ContactosFirebaseService {
+export class ContactosFirebaseService{
 
 
   private path = '/recetas'
-  recetasRef: AngularFirestoreCollection<any>
+  recetasRef: AngularFirestoreCollection<any>;
 
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore,
+    private firestore: Firestore) {
     this.recetasRef = db.collection(this.path)
 
     this.recetasRef.valueChanges().subscribe(data => {
@@ -26,16 +29,15 @@ export class ContactosFirebaseService {
     this.recetasRef.doc(uid).set(Object.assign({}, receta));
   }
 
-  getRecetas(): Observable<Recetas[]> {
-    return this.db.collection<Recetas>('recetas').valueChanges();
+  getRecetas(): Observable<Recetas[]> { //Este metodo me devuelve un observable para poder obtener todas las recetas
+    const respuesta = collection(this.firestore, 'recetas');
+    return collectionData(respuesta, {idField: 'uid'}) as Observable<Recetas[]>;
   }
 
-  buscarRecetas(nombre: string): Observable<Recetas[]> {
-    return this.db
-      .collection<Recetas>('recetas', (ref) =>
-        ref.where('nombre', '>=', nombre).where('nombre', '<=', nombre + '\uf8ff')
-      )
-      .valueChanges();
+  eliminarReceta(receta: Recetas){
+    const recetaRef = doc(this.firestore, `recetas/${receta.uid}`);
+    return deleteDoc(recetaRef);
   }
+
 }
 

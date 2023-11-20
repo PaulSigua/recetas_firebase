@@ -24,7 +24,7 @@ body, html{
 
 }
 
-.container {
+.nav-container {
     margin: 0;
     width: 95%;
     margin: 0 auto;
@@ -32,7 +32,7 @@ body, html{
     padding: var(--padding-container);
 }
 
-.hero_re {
+.header-ini {
     top: 0;
     left: 0;
     position: relative;
@@ -43,7 +43,7 @@ body, html{
     z-index: 10;
 }
 
-.hero_re::before {
+.header-ini::before {
     top: 0;
     left: 0;
     content: "";
@@ -65,14 +65,13 @@ body, html{
     /* Otros estilos... */
 }
 
-.nav {
+nav {
     height: 100%;
     display: flex;
     align-items: center;
-    /*background-color: white;*/
 }
 
-.nav__link {
+.nav-link {
     margin-left: auto;
     padding: 10px;
     display: flex;
@@ -90,19 +89,19 @@ body, html{
     text-align: center;
 }
 
-.nav .lista{
+.nav-container .lista{
     text-align: right;
     justify-content: right;
     align-items: center;
 }
 
-.nav li{
+.nav-container li{
     display: inline;
     padding: 8px;
 }
 
 @media only screen and (max-width: 500px) {
-    .nav__link{
+    .nav-link{
         font-size: 14px;
     }
 }
