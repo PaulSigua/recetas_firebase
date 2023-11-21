@@ -90,9 +90,10 @@ export class RecetasComponent implements OnInit {
     } catch (e) {
       //console.log(e);
     }
+
   }
 
-  cancelarEdicion(receta: Recetas){
+  cancelarEdicion(receta: Recetas) {
     this.mostrarFormulario = false;
   }
 

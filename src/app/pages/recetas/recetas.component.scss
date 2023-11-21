@@ -38,20 +38,7 @@ body {
     border-radius: 10px;
 }
 
-.recetas {
-    border-radius: 10px;
-    border: 1px solid #dee0e6;
-    background-color: #ffffff;
-    padding: 10px;
-    margin: 10px;
-    clear: both;
-    margin-bottom: 20px;
 
-    &:focus {
-        border: 1px solid #c3cad1;
-        outline: none;
-    }
-}
 
 .receta-contenedor {
     background-color: rgb(255, 255, 255);
@@ -75,15 +62,8 @@ body {
     align-items: center;
 }
 
-img {
-    padding: 20px;
-    width: 350px;
-    height: auto;
-}
-
 .columns {
     display: flex;
-    flex-direction: row;
     margin: 10px;
     justify-content: center;
 }
@@ -99,6 +79,15 @@ img {
 }
 
 .nombre-receta {
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    width: auto;
+}
+
+.receta-contenedor .nombre-receta{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,11 +97,17 @@ img {
     .columns {
         flex-direction: column;
         width: auto;
+        padding-right: 10px;
     }
 
     .column {
         width: 100%;
         height: 100%;
+        padding: 10px;
+    }
+
+    .nombre-receta{
+        width: 100%;
     }
 
     .receta-contenedor {
@@ -120,14 +115,9 @@ img {
         margin: 10px;
     }
 
-    .actualizar-receta,
-    .eliminar-receta {
-        margin: 5px;
-    }
-
     .receta-contenedor button{
         display: flex;
-        margin: 5px;
+        margin-left: 5px;
         padding: 5px;
         width: 90px;
         height: 30px;
@@ -137,7 +127,7 @@ img {
 
     .formulario-edicion button{
         display: flex;
-        margin: 5px;
+        margin-left: 5px;
         padding: 5px;
         width: 90px;
         height: 30px;
@@ -153,6 +143,10 @@ img {
     .formulario-edicion{
         min-width: auto;
         height: auto;
+    }
+
+    .btns-elim-edit button{
+        margin: 40px;
     }
 }
 
