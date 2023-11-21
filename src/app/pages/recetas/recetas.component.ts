@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecetasService } from '../servicios/recetas.service';
 import { Recetas } from 'src/app/modelos/datos';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ContactosFirebaseService } from '../servicios/recetas-firebase.service';
 import { updateDoc, doc } from 'firebase/firestore';
 import { Firestore } from '@angular/fire/firestore';
@@ -25,13 +25,15 @@ export class RecetasComponent implements OnInit {
 
   listaRecetas: any;
 
+  datos: Recetas = new Recetas();
+
   busquedaNombre: string = '';
 
   constructor(
     private router: Router,
     private recetasSer: RecetasService,
     private recetasFire: ContactosFirebaseService,
-    private firestore: Firestore
+    private firestore: Firestore,
   ) {
     this.recetas = recetasSer.getInfo();
     this.listaRecetas = this.recetasSer.getAll();
@@ -39,7 +41,6 @@ export class RecetasComponent implements OnInit {
 
     this.recetasFire.getRecetas().subscribe((recetas) =>
       this.recetas = recetas)
-
   }
 
   async eliminarReceta(receta: Recetas) {
@@ -56,35 +57,43 @@ export class RecetasComponent implements OnInit {
 
   async actualizarReceta(receta: Recetas) {
 
-    this.recetaEditando = receta;
-
-    this.mostrarFormulario = true;
-    const formulario = document.getElementById('formularioReceta') as HTMLFormElement;
-
-    const nombre = (formulario.elements.namedItem('nombre') as HTMLInputElement).value;
-    const ingredientes = (formulario.elements.namedItem('ingredientes') as HTMLTextAreaElement).value;
-    const procedimiento = (formulario.elements.namedItem('procedimiento') as HTMLTextAreaElement).value;
-
-    const recetaRef = doc(this.firestore, `recetas/${receta.uid}`);
-    const datos = {
-      nombre: nombre,
-      ingredientes: ingredientes,
-      procedimiento: procedimiento
-    };
-
-    const confirmacion = window.confirm("¿Deseas actualizar?")
-
-    if (confirmacion) {
     try {
-      return await updateDoc(recetaRef, datos);
-      this.mostrarFormulario = false;
-    } catch (error) {
-      console.error("error", error)
+      this.recetaEditando = receta;
+      this.mostrarFormulario = true;
+
+      const formulario = document.getElementById('formularioReceta') as HTMLFormElement;
+
+      const nombre = (formulario.elements.namedItem('nombre') as HTMLTextAreaElement).value;
+      const ingredientes = (formulario.elements.namedItem('ingredientes') as HTMLTextAreaElement).value;
+      const procedimiento = (formulario.elements.namedItem('procedimiento') as HTMLTextAreaElement).value;
+
+      const recetaRef = doc(this.firestore, `recetas/${receta.uid}`);
+      const datos = {
+        nombre: nombre,
+        ingredientes: ingredientes,
+        procedimiento: procedimiento
+      };
+
+      if (datos.nombre == '' || datos.ingredientes == '' || datos.procedimiento == '') {
+        alert("Debe llenar todos los parametros");
+      } else {
+
+        const confirmacion = window.confirm("¿Seguro que deseas actualizar?")
+
+        if (confirmacion) {
+          return await updateDoc(recetaRef, datos);
+          this.mostrarFormulario = false;
+        } else {
+          this.mostrarFormulario = true;
+        }
+      }
+    } catch (e) {
+      //console.log(e);
     }
-    } else {
-      this.mostrarFormulario = false;
-    }
-    
+  }
+
+  cancelarEdicion(receta: Recetas){
+    this.mostrarFormulario = false;
   }
 
   ngOnInit(): void {

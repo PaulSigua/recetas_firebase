@@ -679,22 +679,30 @@
                 <p>{{r.procedimiento}}</p>
             </div>
         </div>
-        <button class="actualizar-receta" (click)="actualizarReceta(r)">Editar receta</button>
-        <button class="eliminar-receta" (click)="eliminarReceta(r)">eliminar receta</button>
+
+        <div class="btns-elim-edit">
+            <button class="editar" (click)="actualizarReceta(r)"> editar </button>
+            <button (click)="eliminarReceta(r)">eliminar</button>
+        </div>
 
         <div *ngIf="mostrarFormulario && r == recetaEditando" class="contenedor-formularioEdit">
             <form id="formularioReceta" class="formulario-edicion">
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-    
+                <textarea id="nombre" name="nombre" required class="nombre-input-actualizar">{{r.nombre}}</textarea>
+
                 <label for="ingredientes">Ingredientes:</label>
-                <textarea id="ingredientes" name="ingredientes" required></textarea>
-    
+                <textarea id="ingredientes" name="ingredientes" required
+                    class="textarea-actualizar">{{r.ingredientes}}</textarea>
+
                 <label for="procedimiento">Procedimiento:</label>
-                <textarea id="procedimiento" name="procedimiento" required></textarea>
-    
-                <button type="button" (click)="actualizarReceta(r)"> Guardar Edicion</button>
-    
+                <textarea id="procedimiento" name="procedimiento" required
+                    class="textarea-actualizar">{{r.procedimiento}}</textarea>
+
+                <div class="btns-editar">
+                    <button type="button" (click)="actualizarReceta(r)">Guardar</button>
+                    <button type="button" (click)="cancelarEdicion(r)">Cancelar</button>
+                </div>
+
             </form>
         </div>
 

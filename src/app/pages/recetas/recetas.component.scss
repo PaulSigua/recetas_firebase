@@ -122,32 +122,68 @@ img {
 
     .actualizar-receta,
     .eliminar-receta {
-        margin: 0;
-        padding: 0;
+        margin: 5px;
+    }
+
+    .receta-contenedor button{
+        display: flex;
+        margin: 5px;
+        padding: 5px;
+        width: 90px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formulario-edicion button{
+        display: flex;
+        margin: 5px;
+        padding: 5px;
+        width: 90px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contenedor-formularioEdit{
+        min-width: auto;
+        height: auto;
+    }
+
+    .formulario-edicion{
+        min-width: auto;
+        height: auto;
     }
 }
 
-.receta-contenedor .actualizar-receta,
-.eliminar-receta {
+.receta-contenedor button{
     display: flex;
-    width: 92px;
-    margin: 5px;
-    background-color: #5d87ff; // Color de fondo del botón
-    color: #fff; // Color del texto
-    border: 1px solid #5d87ff; // Borde del botón
-    border-radius: 5px; // Esquinas redondeadas
-    font-size: 11px; // Tamaño de fuente
-    text-decoration: none;
+    border-radius: 10px;
+    background-color: #5d87ff;
+    color: #fff;
+    padding: 10px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    border: none;
+    outline: none;
+    margin: 5px;
     justify-content: center;
 
     &:hover {
-        background-color: #2c5cb8; // Cambia el color al pasar el ratón
-        color: #ffffff; // Cambia el color del texto al pasar el ratón
+        background-color: #445fb2;
     }
+}
 
-    margin-left: auto;
+.btns-elim-edit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+    height: 25px;
+}
+
+.editar{
+    width: 68px;
 }
 
 /* Estilos para el formulario de edición */
@@ -169,17 +205,15 @@ img {
     align-items: center;
 }
 
-.formulario-edicion label {
-    margin-bottom: 8px;
-}
-
-.formulario-edicion input{
+.formulario-edicion .nombre-input-actualizar {
     border-radius: 10px;
     border: 1px solid #dee0e6;
     padding: 10px;
     margin-bottom: 15px;
     box-sizing: border-box;
     width: 250px;
+    height: 40px;
+    resize: none;
 
     &:focus {
         border: 1px solid #b7bac3;
@@ -187,7 +221,7 @@ img {
     }
 }
 
-.formulario-edicion textarea{
+.formulario-edicion .textarea-actualizar{
     border-radius: 10px;
     border: 1px solid #dee0e6;
     padding: 10px;
@@ -210,8 +244,17 @@ img {
     cursor: pointer;
     border: none;
     outline: none;
+    margin: 5px;
 
     &:hover {
         background-color: #445fb2;
     }
+}
+
+.btns-editar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
 }
