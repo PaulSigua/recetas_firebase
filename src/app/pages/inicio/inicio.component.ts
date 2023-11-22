@@ -32,6 +32,10 @@ export class InicioComponent implements OnInit {
       console.log(params)
       this.datos = params['recetas']
     }
+
+    window.scrollTo({
+      top: 0
+    })
   }
 
   ngOnInit(): void {

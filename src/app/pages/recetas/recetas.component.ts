@@ -41,6 +41,11 @@ export class RecetasComponent implements OnInit {
 
     this.recetasFire.getRecetas().subscribe((recetas) =>
       this.recetas = recetas)
+
+      
+    window.scrollTo({
+      top: 0
+    })
   }
 
   async eliminarReceta(receta: Recetas) {

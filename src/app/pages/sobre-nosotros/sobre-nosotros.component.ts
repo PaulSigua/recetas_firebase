@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class SobreNosotrosComponent {
 
+
+  constructor() {
+
+    window.scrollTo({
+      top: 0
+    })
+  }
 }

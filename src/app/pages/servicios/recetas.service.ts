@@ -29,6 +29,10 @@ export class RecetasService {
         this.currentUrl.next(event.urlAfterRedirects);
       }
     });
+
+    window.scrollTo({
+      top: 0
+    })
   }
 
   getInfo() {
