@@ -50,7 +50,8 @@
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url('./portada.jpg');
     background-size: no-repeat;
     z-index: -1;
-    border-radius: 5px;
+    border-end-start-radius: 5px;
+    border-end-end-radius: 5px;
 }
 
 .fixed-header {

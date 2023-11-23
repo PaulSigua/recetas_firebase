@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
-body {
+.container-main {
     font-family: 'Ubuntu', sans-serif;
     background-color: rgba(252, 252, 252, 0.767);
     margin: 0;
@@ -151,25 +151,6 @@ body {
         outline: none;
     }
 }
-
-/*@media screen and (max-width: 600px) {
-    .input-dates {
-        padding: 10px;
-    }
-
-    .input-text {
-        height: 100px;
-    }
-
-    form {
-        width: 100%;
-    }
-
-    .input-name-recet {
-        width: 100%;
-    }
-
-}*/
 
 .imagen-insert {
     display: grid;
